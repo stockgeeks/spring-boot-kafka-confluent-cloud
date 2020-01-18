@@ -1,0 +1,21 @@
+# Specific Confluent Cloud Configuration file.
+# This profile with inherit all properties from application.yml
+# But will override properties:
+# spring.kafka.bootstrap-servers and schema.registry.url (part of spring.kafka.properties)
+
+spring:
+  kafka:
+    bootstrap-servers: ${CLUSTER_BOOTSTRAP_SERVERS}
+    consumer:
+      auto-offset-reset: earliest
+    properties:
+      ssl.endpoint.identification.algorithm: https
+      sasl.mechanism: PLAIN
+      request.timeout.ms: 20000
+      security.protocol: SASL_SSL
+      retry.backoff.ms: 500
+      sasl.jaas.config: org.apache.kafka.common.security.plain.PlainLoginModule required username='${CLUSTER_API_KEY}' password='${CLUSTER_API_SECRET}';
+      # Schema Registry specific settings
+      schema.registry.url: ${SR_URL}
+      basic.auth.credentials.source: USER_INFO
+      schema.registry.basic.auth.user.info: ${SR_API_KEY}:${SR_API_SECRET}
