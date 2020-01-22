@@ -1,6 +1,6 @@
 # Spring Boot - Spring Kafka - Apache Kafka - Apache Avro - Confluent Cloud example
 
-Example project by blog post: 
+Example project by blog post: https://medium.com/@TimvanBaarsen/maven-cheat-sheet-45942d8c0b86
 
 * [Apache Kafka](https://kafka.apache.org/)
 * [Apache Avro](https://avro.apache.org/)
